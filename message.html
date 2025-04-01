@@ -3,14 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>April Fool!</title>
+    <title>April Fools! - Ghibli Style Prank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; background-color: #f8f9fa; }
-        .message { font-size: 24px; font-weight: bold; color: red; }
+        :root {
+            --prank-pink: #ff6b9e;
+            --prank-purple: #9d65c9;
+            --prank-yellow: #fff44f;
+            --prank-green: #5ced73;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(45deg, var(--prank-pink), var(--prank-purple));
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+            animation: bgPulse 8s infinite alternate;
+        }
+        
+        @keyframes bgPulse {
+            0% { background: linear-gradient(45deg, var(--prank-pink), var(--prank-purple)); }
+            50% { background: linear-gradient(45deg, var(--prank-green), var(--prank-yellow)); }
+            100% { background: linear-gradient(45deg, var(--prank-yellow), var(--prank-pink)); }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: var(--prank-yellow);
+            opacity: 0.7;
+            animation: confettiFall 5s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes confettiFall {
+            to { transform: translateY(100vh) rotate(360deg); }
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px dashed white;
+            position: relative;
+            overflow: hidden;
+            transform: rotate(0deg);
+            transition: transform 0.5s;
+        }
+        
+        .container:hover {
+            transform: rotate(1deg);
+        }
+        
+        h1 {
+            font-family: 'Comic Neue', cursive;
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--prank-yellow);
+            text-shadow: 3px 3px 0 rgba(0, 0, 0, 0.3);
+            animation: bounce 0.8s infinite alternate;
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: white;
+            text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+        }
+        
+        @keyframes bounce {
+            to { transform: translateY(-10px); }
+        }
+        
+        .message {
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        .prank-image {
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="%23fff44f"/><circle cx="35" cy="40" r="5" fill="%23000"/><circle cx="65" cy="40" r="5" fill="%23000"/><path d="M30 65 Q50 80 70 65" stroke="%23000" stroke-width="3" fill="none"/></svg>');
+            background-size: contain;
+            animation: spin 4s linear infinite;
+        }
+        
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+        
+        .button {
+            display: inline-block;
+            background: white;
+            color: var(--prank-purple);
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            text-decoration: none;
+            margin: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .button:hover {
+            transform: scale(1.1) rotate(5deg);
+            background: var(--prank-yellow);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .face {
+            position: absolute;
+            font-size: 30px;
+            animation: float 6s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .rainbow-text {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <h1 class="message"> কি ভাবলে? এবছর বেঁচে যাবে? April Fool! 🎭</h1>
-    <h2 class="message"> Swaraj se Bachna Mushkil hi Nahi, Namumkin hai. 😈</h2>
+    <!-- Confetti elements -->
+    <div class="confetti" style="left:10%; animation-delay:0s;"></div>
+    <div class="confetti" style="left:20%; animation-delay:1s;"></div>
+    <div class="confetti" style="left:30%; animation-delay:0.5s;"></div>
+    <div class="confetti" style="left:40%; animation-delay:2s;"></div>
+    <div class="confetti" style="left:50%; animation-delay:1.5s;"></div>
+    <div class="confetti" style="left:60%; animation-delay:0.8s;"></div>
+    <div class="confetti" style="left:70%; animation-delay:2.5s;"></div>
+    <div class="confetti" style="left:80%; animation-delay:1.2s;"></div>
+    <div class="confetti" style="left:90%; animation-delay:3s;"></div>
+    
+    <!-- Floating emoji faces -->
+    <div class="face" style="top:10%; left:5%;">😂</div>
+    <div class="face" style="top:20%; right:8%;">🤣</div>
+    <div class="face" style="bottom:15%; left:7%;">😭</div>
+    <div class="face" style="bottom:25%; right:5%;">🤡</div>
+    
+    <div class="container">
+        <h1 class="message">কি ভাবলে? এবছর বেঁচে যাবে? April Fool! 🎭</h1>
+        <h2 class="message">Swaraj se Bachna Mushkil hi Nahi, Namumkin hai. 😈</h2>
+        
+        <div class="prank-image"></div>
+        
+        <button class="button" onclick="window.location.href='index.html'">Try to fool someone else!</button>
+    </div>
+
+    <script>
+        // Create more confetti
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 5000);
+        }
+        
+        setInterval(createConfetti, 300);
+        
+        // More floating faces
+        function createFace() {
+            const face = document.createElement('div');
+            face.className = 'face';
+            face.textContent = ['😂','🤣','😭','🤡','🙈','💩','👻','🤖'][Math.floor(Math.random()*8)];
+            face.style.top = Math.random() * 80 + 10 + '%';
+            face.style.left = Math.random() * 90 + 5 + '%';
+            face.style.fontSize = (Math.random() * 20 + 20) + 'px';
+            face.style.animationDuration = (Math.random() * 5 + 3) + 's';
+            document.body.appendChild(face);
+            
+            setTimeout(() => {
+                face.remove();
+            }, 10000);
+        }
+        
+        setInterval(createFace, 2000);
+    </script>
 </body>
 </html>
